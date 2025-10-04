@@ -4,4 +4,6 @@ streamlit
 pillow
 requests
 python-multipart
+neo4j
+chromadb
 
