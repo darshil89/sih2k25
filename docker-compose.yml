@@ -1,0 +1,29 @@
+version: '1'
+
+# neo4j instance
+services:
+  neo4j:
+    image: neo4j:5.22.0
+    ports:
+      - 7474:7474
+      - 7687:7687
+    container_name: ufdr-kg
+    environment:
+      - NEO4J_AUTH=neo4j/password
+      - NEO4J_dbms_memory_heap_max__size=10G
+    volumes:
+      - ./data:/data
+    restart: unless-stopped
+
+  # vector db instance
+  chroma:
+    image: chromadb/chroma:1.1.1.dev41
+    ports:
+      - 8000:8000
+    container_name: ufdr-chroma-db
+    environment:
+      - CHROMA_SERVER_HOST=0.0.0.0
+      - CHROMA_SERVER_HTTP_PORT=8000
+    volumes:
+      - ./chroma_data:/chroma/chroma
+    restart: unless-stopped
