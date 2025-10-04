@@ -8,3 +8,5 @@ neo4j
 chromadb
 transformers
 torch
+huggingface_hub[hf_xet]
+hf_xet
