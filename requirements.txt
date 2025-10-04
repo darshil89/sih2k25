@@ -6,4 +6,5 @@ requests
 python-multipart
 neo4j
 chromadb
-
+transformers
+torch
